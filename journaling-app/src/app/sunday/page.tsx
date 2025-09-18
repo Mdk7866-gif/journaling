@@ -10,7 +10,7 @@ export default function Sunday() {
     { time: '5:00 – 6:30', description: 'Exercise + relax', category: 'Exercise' },
     { time: '6:30 – 7:00', description: 'Free/relax', category: 'Relax' },
     { time: '7:00 – 8:00', description: 'Dinner', category: 'Meal' },
-    { time: '8:00 – 10:00', description: 'Codeforces contest', category: 'Coding' },
+    { time: '8:00 – 10:00', description: 'Codeforces contest+journaling', category: 'Coding' },
     { time: '10:00 – 6:45', description: 'Sleep', category: 'Rest' },
   ];
 
