@@ -27,7 +27,7 @@ const JournalForm: React.FC<JournalFormProps> = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className="bg-gray-800/80 backdrop-blur-lg rounded-3xl p-6 shadow-xl border border-gray-700 mb-6">
-      <h2 className="text-2xl font-bold text-white mb-4">Write Today's Journal</h2>
+      <h2 className="text-2xl font-bold text-white mb-4">Write Today&apos; Journal</h2>
       
       <div className="mb-4">
         <label htmlFor="mood" className="block text-white mb-2">How are you feeling today?</label>

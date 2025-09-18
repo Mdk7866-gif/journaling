@@ -62,9 +62,9 @@ export default function Friday() {
             ))}
         </div>
         <div className="mt-4 p-4 border border-purple-500/50 rounded-lg bg-purple-900/70">
-          <h3 className="text-lg font-semibold mb-3 text-white bg-gradient-to-r from-purple-200 to-indigo-200 bg-clip-text text-transparent flex items-center">
+          <h3 className="text-lg font-semibold mb-3 text-white bg-gradient-to-r from-purple-200 to-indigo-200 bg-clip-text  flex items-center">
             <span className="mr-2">🎥</span>
-            Mujahid's Friday Classic Movie Plan (Sept-Dec 2025)
+            Mujahid&apos;s Friday Classic Movie Plan (Sept-Dec 2025)
           </h3>
           <ul className="space-y-2 text-sm text-gray-200">
             {movieSchedule.map((item, index) => (
