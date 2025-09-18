@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
+    <meta name="description" content="My structured weekly schedule for productivity and personal growth">
+    <meta name="keywords" content="schedule, productivity, routine, time management">
+    <meta name="author" content="Your Name">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Weekly Schedule">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="My Weekly Schedule">
+    <meta property="og:description" content="A structured approach to productivity and growth">
+    <meta property="og:image" content="/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="My Weekly Schedule">
+    <meta property="twitter:description" content="A structured approach to productivity and growth">
+    <title>My Weekly Schedule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .day-card {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .day-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .day-emoji {
+            font-size: 2rem;
+        }
+
+        .task-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: 12px;
+            background: rgba(102, 126, 234, 0.05);
+            border-left: 3px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .task-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+
+        .task-time {
+            font-weight: 700;
+            color: #667eea;
+            min-width: 120px;
+            font-size: 0.9rem;
+        }
+
+        .task-description {
+            flex: 1;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .task-category {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .category-exercise {
+            background: rgba(72, 187, 120, 0.2);
+            color: #38a169;
+        }
+
+        .category-study {
+            background: rgba(66, 153, 225, 0.2);
+            color: #3182ce;
+        }
+
+        .category-meal {
+            background: rgba(237, 137, 54, 0.2);
+            color: #dd6b20;
+        }
+
+        .category-coding {
+            background: rgba(128, 90, 213, 0.2);
+            color: #805ad5;
+        }
+
+        .category-leisure {
+            background: rgba(236, 72, 153, 0.2);
+            color: #d53f8c;
+        }
+
+        .stats-section {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .special-highlight {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(128, 90, 213, 0.1) 100%);
+            border-left-color: #ec4899;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.5rem;
+            }
+            
+            .header {
+                margin-bottom: 2rem;
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .schedule-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .day-card {
+                padding: 1rem;
+                margin: 0 0.25rem;
+                border-radius: 15px;
+            }
+            
+            .day-title {
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
+                text-align: center;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            
+            .day-emoji {
+                font-size: 1.5rem;
+            }
+            
+            .task-item {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+                border-radius: 10px;
+            }
+            
+            .task-time {
+                font-size: 0.85rem;
+                font-weight: 800;
+                color: #667eea;
+                min-width: unset;
+                background: rgba(102, 126, 234, 0.1);
+                padding: 0.25rem 0.5rem;
+                border-radius: 8px;
+                text-align: center;
+                width: fit-content;
+            }
+            
+            .task-description {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+            
+            .task-category {
+                display: block;
+                margin: 0.5rem 0 0 0;
+                width: fit-content;
+                font-size: 0.7rem;
+            }
+            
+            .stats-section {
+                padding: 1.5rem 1rem;
+                margin-top: 1.5rem;
+                border-radius: 15px;
+            }
+            
+            .stats-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .stat-item {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .schedule-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .day-card {
+                padding: 1.5rem;
+            }
+            
+            .task-item {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .task-time {
+                min-width: 100px;
+                font-size: 0.85rem;
+            }
+            
+            .task-description {
+                font-size: 0.9rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .schedule-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Touch interactions for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .task-item:active {
+                background: rgba(102, 126, 234, 0.15);
+                transform: scale(0.98);
+            }
+            
+            .day-card:active {
+                transform: scale(0.98);
+            }
+            
+            .stat-item:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Optimize for very small screens */
+        @media (max-width: 320px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .day-card {
+                padding: 0.75rem;
+            }
+            
+            .task-time {
+                font-size: 0.8rem;
+            }
+            
+            .task-description {
+                font-size: 0.85rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📅 My Weekly Schedule</h1>
+            <p>A structured approach to productivity and growth</p>
+        </div>
+
+        <div class="schedule-grid">
+            <!-- Monday -->
+            <div class="day-card">
+                <div class="day-title">
+                    <span class="day-emoji">🌟</span>
+                    Monday
+                </div>
+                <div class="task-item">
+                    <div class="task-time">6:45 – 7:30</div>
+                    <div class="task-description">Sunlight + brisk walk/jog + stretch + breathing<span class="task-category category-exercise">Exercise</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">7:30 – 8:00</div>
+                    <div class="task-description">Breakfast (3 eggs, 7 almonds, 1 date, little mess food)<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">8:00 – 9:00</div>
+                    <div class="task-description">College class<span class="task-category category-study">Study</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">9:00 – 12:00</div>
+                    <div class="task-description">Data Science learning<span class="task-category category-study">Study</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">12:00 – 1:00</div>
+                    <div class="task-description">Lunch + power nap<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">1:00 – 5:00</div>
+                    <div class="task-description">College classes<span class="task-category category-study">Study</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">5:00 – 6:30</div>
+                    <div class="task-description">Exercise + shower + hydration + relax<span class="task-category category-exercise">Exercise</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">6:30 – 7:30</div>
+                    <div class="task-description">2 Codeforces problems<span class="task-category category-coding">Coding</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">7:30 – 8:30</div>
+                    <div class="task-description">Dinner + relax<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">8:30 – 9:30</div>
+                    <div class="task-description">Web development projects<span class="task-category category-coding">Coding</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">9:30 – 10:00</div>
+                    <div class="task-description">Journaling + relax<span class="task-category category-leisure">Leisure</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">10:00 – 6:45</div>
+                    <div class="task-description">Sleep<span class="task-category category-leisure">Rest</span></div>
+                </div>
+            </div>
+
+            <!-- Tuesday-Thursday -->
+            <div class="day-card">
+                <div class="day-title">
+                    <span class="day-emoji">⚡</span>
+                    Tuesday – Thursday
+                    <small style="font-size: 0.8rem; color: #718096;">(Core Routine)</small>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">6:45 – 7:30</div>
+                    <div class="task-description">Sunlight + brisk walk/jog + stretch + breathing<span class="task-category category-exercise">Exercise</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">7:30 – 8:00</div>
+                    <div class="task-description">Breakfast (3 eggs, 7 almonds, 1 date, little mess food)<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">8:00 – 1:00</div>
+                    <div class="task-description">College classes<span class="task-category category-study">Study</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">1:00 – 2:30</div>
+                    <div class="task-description">Lunch + power nap + relax<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">2:30 – 4:30</div>
+                    <div class="task-description">College homework<span class="task-category category-study">Study</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">5:00 – 6:30</div>
+                    <div class="task-description">Exercise + shower + hydration + relax<span class="task-category category-exercise">Exercise</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">6:30 – 7:30</div>
+                    <div class="task-description">2 Codeforces problems<span class="task-category category-coding">Coding</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">7:30 – 8:30</div>
+                    <div class="task-description">Dinner + relax<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">8:30 – 9:30</div>
+                    <div class="task-description">Web development projects<span class="task-category category-coding">Coding</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">9:30 – 10:00</div>
+                    <div class="task-description">Journaling + relax<span class="task-category category-leisure">Leisure</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">10:00 – 6:45</div>
+                    <div class="task-description">Sleep<span class="task-category category-leisure">Rest</span></div>
+                </div>
+            </div>
+
+            <!-- Friday -->
+            <div class="day-card">
+                <div class="day-title">
+                    <span class="day-emoji">🎬</span>
+                    Friday
+                </div>
+                <div class="task-item">
+                    <div class="task-time">6:45 – 7:30</div>
+                    <div class="task-description">Sunlight + brisk walk/jog + stretch + breathing<span class="task-category category-exercise">Exercise</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">7:30 – 8:00</div>
+                    <div class="task-description">Breakfast (3 eggs, 7 almonds, 1 date, little mess food)<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">8:00 – 1:00</div>
+                    <div class="task-description">College classes<span class="task-category category-study">Study</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">1:00 – 2:30</div>
+                    <div class="task-description">Lunch + power nap + relax<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">2:30 – 4:30</div>
+                    <div class="task-description">College homework<span class="task-category category-study">Study</span></div>
+                </div>
+                <div class="task-item special-highlight">
+                    <div class="task-time">5:00 – 10:00</div>
+                    <div class="task-description">🎬 Movie plan (structured leisure time)<span class="task-category category-leisure">Leisure</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">10:00 – 6:45</div>
+                    <div class="task-description">Sleep<span class="task-category category-leisure">Rest</span></div>
+                </div>
+            </div>
+
+            <!-- Saturday -->
+            <div class="day-card">
+                <div class="day-title">
+                    <span class="day-emoji">💻</span>
+                    Saturday
+                </div>
+                <div class="task-item">
+                    <div class="task-time">6:45 – 7:30</div>
+                    <div class="task-description">Morning exercise<span class="task-category category-exercise">Exercise</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">7:30 – 8:00</div>
+                    <div class="task-description">Breakfast<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">8:00 – 9:00</div>
+                    <div class="task-description">2 Codeforces problems<span class="task-category category-coding">Coding</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">9:00 – 11:00</div>
+                    <div class="task-description">Weekend college work<span class="task-category category-study">Study</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">11:00 – 1:00</div>
+                    <div class="task-description">Web development<span class="task-category category-coding">Coding</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">1:00 – 2:30</div>
+                    <div class="task-description">Lunch + power nap<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">2:30 – 4:30</div>
+                    <div class="task-description">Web development<span class="task-category category-coding">Coding</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">5:00 – 6:30</div>
+                    <div class="task-description">Exercise + shower + relax<span class="task-category category-exercise">Exercise</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">6:30 – 7:30</div>
+                    <div class="task-description">Web development<span class="task-category category-coding">Coding</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">7:30 – 8:30</div>
+                    <div class="task-description">Dinner<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">8:30 – 9:30</div>
+                    <div class="task-description">Web development<span class="task-category category-coding">Coding</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">9:30 – 10:00</div>
+                    <div class="task-description">Journaling + relax<span class="task-category category-leisure">Leisure</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">10:00 – 6:45</div>
+                    <div class="task-description">Sleep<span class="task-category category-leisure">Rest</span></div>
+                </div>
+            </div>
+
+            <!-- Sunday -->
+            <div class="day-card">
+                <div class="day-title">
+                    <span class="day-emoji">🚀</span>
+                    Sunday
+                </div>
+                <div class="task-item">
+                    <div class="task-time">6:45 – 7:30</div>
+                    <div class="task-description">Morning exercise<span class="task-category category-exercise">Exercise</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">7:30 – 8:00</div>
+                    <div class="task-description">Breakfast<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">8:00 – 1:00</div>
+                    <div class="task-description">Hakirat project work<span class="task-category category-coding">Project</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">1:00 – 2:30</div>
+                    <div class="task-description">Lunch + power nap<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">2:30 – 4:30</div>
+                    <div class="task-description">Hakirat project work (continue)<span class="task-category category-coding">Project</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">5:00 – 6:30</div>
+                    <div class="task-description">Exercise + relax<span class="task-category category-exercise">Exercise</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">6:30 – 7:00</div>
+                    <div class="task-description">Free/relax<span class="task-category category-leisure">Leisure</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">7:00 – 8:00</div>
+                    <div class="task-description">Dinner<span class="task-category category-meal">Meal</span></div>
+                </div>
+                <div class="task-item special-highlight">
+                    <div class="task-time">8:00 – 10:00</div>
+                    <div class="task-description">Codeforces contest<span class="task-category category-coding">Contest</span></div>
+                </div>
+                <div class="task-item">
+                    <div class="task-time">10:00 – 6:45</div>
+                    <div class="task-description">Sleep<span class="task-category category-leisure">Rest</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="stats-section">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #2d3748; font-size: 2rem; font-weight: 700;">📊 Weekly Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">8.75</div>
+                    <div class="stat-label">Hours Sleep/Night</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Coding Sessions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Exercise Sessions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">45</div>
+                    <div class="stat-label">Study Hours/Week</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced mobile interactions and performance optimizations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.day-card');
+            const taskItems = document.querySelectorAll('.task-item');
+            
+            // Staggered animations for cards
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Enhanced touch interactions for mobile
+            taskItems.forEach(item => {
+                let pressTimer;
+                
+                // Mouse/Touch events
+                item.addEventListener('mousedown', startPress);
+                item.addEventListener('touchstart', startPress, { passive: true });
+                item.addEventListener('mouseup', endPress);
+                item.addEventListener('touchend', endPress);
+                item.addEventListener('mouseleave', endPress);
+                
+                function startPress(e) {
+                    this.style.background = 'rgba(102, 126, 234, 0.15)';
+                    this.style.transform = 'translateX(3px) scale(0.98)';
+                }
+                
+                function endPress(e) {
+                    setTimeout(() => {
+                        this.style.background = 'rgba(102, 126, 234, 0.05)';
+                        this.style.transform = 'translateX(0) scale(1)';
+                    }, 150);
+                }
+            });
+            
+            // Optimize animations for mobile performance
+            if (window.innerWidth <= 768) {
+                document.body.classList.add('mobile-optimized');
+                
+                // Reduce animation complexity on mobile
+                const style = document.createElement('style');
+                style.textContent = `
+                    .mobile-optimized .day-card:hover {
+                        transform: translateY(-5px);
+                    }
+                    .mobile-optimized .task-item:hover {
+                        transform: translateX(3px);
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Lazy loading for better performance
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '50px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Apply lazy loading to cards
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Add loading indicator
+            window.addEventListener('load', function() {
+                document.body.style.opacity = '1';
+            });
+            
+            // Handle orientation change
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    window.scrollTo(0, window.scrollY + 1);
+                    window.scrollTo(0, window.scrollY - 1);
+                }, 100);
+            });
+        });
+        
+        // Service Worker registration for PWA capabilities
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
