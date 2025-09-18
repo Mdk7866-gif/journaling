@@ -34,7 +34,7 @@ const Navigation = () => {
       {/* Mobile menu - separate from layout flow */}
       {isOpen && (
         <div className="md:hidden fixed inset-0 pt-24 z-50" style={{top: '80px', height: 'calc(100vh - 80px)'}}>
-          <div className="absolute inset-0 bg-white/80 backdrop-blur-xl flex flex-col items-center justify-start gap-4 p-6">
+          <div className="absolute inset-0 bg-white/100  backdrop-blur-xl flex flex-col items-center justify-start gap-4 p-6">
             {navItems.map((item) => (
               <Link 
                 key={item.path} 
