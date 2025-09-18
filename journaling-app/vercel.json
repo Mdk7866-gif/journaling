@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["bom1"],
+  "env": {
+    "MONGODB_URI": "mongodb+srv://Mdk7866:Mp8xxwi2ra@syp3.ga4ymx2.mongodb.net/"
+  }
+}

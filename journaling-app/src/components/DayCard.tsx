@@ -1,0 +1,40 @@
+import React from 'react';
+import TaskItem from './TaskItem';
+
+interface Task {
+  time: string;
+  description: string;
+  category: string;
+}
+
+interface DayCardProps {
+  title: string;
+  emoji: string;
+  tasks: Task[];
+  isActive: boolean;
+}
+
+const DayCard: React.FC<DayCardProps> = ({ title, emoji, tasks, isActive }) => {
+  if (!isActive) return null;
+  
+  return (
+    <div className="bg-gradient-to-br from-indigo-900/90 to-purple-900/90 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-indigo-700/50 transition-all animate-fade-in-down">
+      <div className="flex items-center gap-3 mb-8 border-b border-indigo-500/30 pb-4">
+        <span className="text-4xl">{emoji}</span>
+        <h2 className="text-3xl font-bold text-white bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent">{title}</h2>
+      </div>
+      <div className="space-y-4">
+        {tasks.map((task, index) => (
+          <TaskItem 
+            key={index}
+            time={task.time}
+            description={task.description}
+            category={task.category}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default DayCard;
