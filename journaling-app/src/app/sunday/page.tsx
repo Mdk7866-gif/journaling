@@ -2,15 +2,16 @@ import DayCard from '@/components/DayCard';
 
 export default function Sunday() {
   const sundayTasks = [
-    { time: '7:30 – 8:30', description: 'Sunlight + brisk walk/jog + stretch + breathing', category: 'Exercise' },
-    { time: '8:30 – 9:00', description: 'Breakfast', category: 'Meal' },
-    { time: '9:00 – 12:00', description: 'Personal projects/learning', category: 'Study' },
-    { time: '12:00 – 1:30', description: 'Lunch + relax', category: 'Meal' },
-    { time: '1:30 – 4:30', description: 'Weekly planning + review', category: 'Study' },
-    { time: '4:30 – 6:00', description: 'Exercise + shower', category: 'Exercise' },
-    { time: '6:00 – 7:30', description: 'Dinner + relax', category: 'Meal' },
-    { time: '7:30 – 9:30', description: 'Journaling + reflection', category: 'Leisure' },
-    { time: '9:30 – 7:30', description: 'Sleep', category: 'Rest' },
+    { time: '6:45 – 7:30', description: 'Morning exercise', category: 'Exercise' },
+    { time: '7:30 – 8:00', description: 'Breakfast (3 eggs, 7 almonds, 1 date, little mess food)', category: 'Meal' },
+    { time: '8:00 – 1:00', description: 'Hakirat project work', category: 'Coding' },
+    { time: '1:00 – 2:30', description: 'Lunch + power nap', category: 'Meal' },
+    { time: '2:30 – 4:30', description: 'Hakirat project work (continue)', category: 'Coding' },
+    { time: '5:00 – 6:30', description: 'Exercise + relax', category: 'Exercise' },
+    { time: '6:30 – 7:00', description: 'Free/relax', category: 'Relax' },
+    { time: '7:00 – 8:00', description: 'Dinner', category: 'Meal' },
+    { time: '8:00 – 10:00', description: 'Codeforces contest', category: 'Coding' },
+    { time: '10:00 – 6:45', description: 'Sleep', category: 'Rest' },
   ];
 
   return (

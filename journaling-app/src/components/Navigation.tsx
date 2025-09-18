@@ -18,7 +18,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-gradient-to-r from-indigo-800/40 to-purple-800/40 backdrop-blur-lg rounded-2xl p-4 mb-8 shadow-xl border border-indigo-500/20">
+    <nav className="bg-gradient-to-r  from-indigo-800/40 to-purple-800/40 backdrop-blur-lg rounded-2xl p-4 mb-8 shadow-xl border border-indigo-500/20">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <span className="text-2xl font-bold bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent mr-4">My Weekly Schedule</span>

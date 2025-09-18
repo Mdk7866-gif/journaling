@@ -12,9 +12,10 @@ interface DayCardProps {
   emoji: string;
   tasks: Task[];
   isActive: boolean;
+  children?: React.ReactNode; // Added optional children prop
 }
 
-const DayCard: React.FC<DayCardProps> = ({ title, emoji, tasks, isActive }) => {
+const DayCard: React.FC<DayCardProps> = ({ title, emoji, tasks, isActive, children }) => {
   if (!isActive) return null;
   
   return (
@@ -33,6 +34,7 @@ const DayCard: React.FC<DayCardProps> = ({ title, emoji, tasks, isActive }) => {
           />
         ))}
       </div>
+      {children} {/* Render children if provided */}
     </div>
   );
 };
