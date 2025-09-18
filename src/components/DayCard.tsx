@@ -19,10 +19,10 @@ const DayCard: React.FC<DayCardProps> = ({ title, emoji, tasks, isActive, childr
   if (!isActive) return null;
   
   return (
-    <div className="bg-gradient-to-br from-indigo-900/90 to-purple-900/90 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-indigo-700/50 transition-all animate-fade-in-down">
+    <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-indigo-200 transition-all animate-fade-in-down">
       <div className="flex items-center gap-3 mb-8 border-b border-indigo-500/30 pb-4">
         <span className="text-4xl">{emoji}</span>
-        <h2 className="text-3xl font-bold text-white bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent">{title}</h2>
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-700 to-indigo-500 bg-clip-text text-transparent">{title}</h2>
       </div>
       <div className="space-y-4">
         {tasks.map((task, index) => (

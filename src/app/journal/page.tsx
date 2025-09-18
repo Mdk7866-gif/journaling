@@ -62,7 +62,7 @@ export default function JournalPage() {
       <JournalForm onSubmit={handleSubmit} />
       
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-white mb-4">Your Journal Entries</h2>
+        <h2 className="text-2xl font-bold text-gray-600 mb-4">Your Journal Entries</h2>
         
         {loading ? (
           <div className="text-center py-8 text-white/70">Loading journal entries...</div>

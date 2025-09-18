@@ -45,8 +45,8 @@ export default function Friday() {
         })}
         isActive={true}
       >
-        <div className="mt-4 p-4 border border-indigo-500/50 rounded-lg bg-indigo-900/70">
-          <h2 className="text-xl font-bold mb-2 text-white bg-gradient-to-r from-indigo-200 to-purple-200 bg-clip-text text-transparent">Movie Enjoyment Time</h2>
+        <div className="mt-4 p-4 border border-indigo-200 rounded-lg bg-white/70 backdrop-blur-md">
+          <h2 className="text-xl font-bold mb-2 bg-gradient-to-r from-indigo-700 to-indigo-500 bg-clip-text text-transparent">Movie Enjoyment Time</h2>
           {fridayTasks
             .filter(task => 
               task.time === '5:00 – 5:10' || 
@@ -56,21 +56,21 @@ export default function Friday() {
               task.time === '9:55 – 10:00'
             )
             .map((task, index) => (
-              <div key={index} className="mb-2 p-2 bg-white/10 rounded-md">
-                <strong className="text-indigo-300">{task.time}</strong>: {task.description.replace('**MOVIE** ', '')}
+              <div key={index} className="mb-2 p-2 bg-indigo-50 rounded-md">
+                <strong className="text-indigo-700">{task.time}</strong>: {task.description.replace('**MOVIE** ', '')}
               </div>
             ))}
         </div>
-        <div className="mt-4 p-4 border border-purple-500/50 rounded-lg bg-purple-900/70">
-          <h3 className="text-lg font-semibold mb-3 text-white bg-gradient-to-r from-purple-200 to-indigo-200 bg-clip-text  flex items-center">
+        <div className="mt-4 p-4 border border-purple-200 rounded-lg bg-white/70 backdrop-blur-md">
+          <h3 className="text-lg font-semibold mb-3 bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent flex items-center">
             <span className="mr-2">🎥</span>
             Mujahid&apos;s Friday Classic Movie Plan (Sept-Dec 2025)
           </h3>
-          <ul className="space-y-2 text-sm text-gray-200">
+          <ul className="space-y-2 text-sm text-slate-700">
             {movieSchedule.map((item, index) => (
-              <li key={index} className="flex justify-between p-2 bg-white/5 rounded-md border-l-4 border-purple-400">
-                <span className="font-medium text-purple-300">{item.date}</span>
-                <span className="text-white italic">– {item.movie}</span>
+              <li key={index} className="flex justify-between p-2 bg-purple-50 rounded-md border-l-4 border-purple-300">
+                <span className="font-medium text-purple-800">{item.date}</span>
+                <span className="text-slate-800 italic">– {item.movie}</span>
               </li>
             ))}
           </ul>

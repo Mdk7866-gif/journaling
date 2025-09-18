@@ -12,7 +12,7 @@ const JournalForm: React.FC<JournalFormProps> = ({ onSubmit }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!content.trim()) return;
-    
+
     setIsSubmitting(true);
     try {
       await onSubmit(content, mood);
@@ -26,16 +26,23 @@ const JournalForm: React.FC<JournalFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-gray-800/80 backdrop-blur-lg rounded-3xl p-6 shadow-xl border border-gray-700 mb-6">
-      <h2 className="text-2xl font-bold text-white mb-4">Write Today&apos; Journal</h2>
-      
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white rounded-3xl p-6 shadow-lg border border-gray-200 mb-6"
+    >
+      <h2 className="text-2xl font-bold text-indigo-600 mb-4">
+        Write Today&apos;s Journal
+      </h2>
+
       <div className="mb-4">
-        <label htmlFor="mood" className="block text-white mb-2">How are you feeling today?</label>
+        <label htmlFor="mood" className="block text-gray-700 mb-2">
+          How are you feeling today?
+        </label>
         <select
           id="mood"
           value={mood}
           onChange={(e) => setMood(e.target.value)}
-          className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-indigo-500"
+          className="w-full p-3 rounded-lg bg-gray-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
         >
           <option value="happy">Happy 😊</option>
           <option value="productive">Productive 💪</option>
@@ -44,23 +51,25 @@ const JournalForm: React.FC<JournalFormProps> = ({ onSubmit }) => {
           <option value="sad">Sad 😔</option>
         </select>
       </div>
-      
+
       <div className="mb-4">
-        <label htmlFor="content" className="block text-white mb-2">Journal Entry</label>
+        <label htmlFor="content" className="block text-gray-700 mb-2">
+          Journal Entry
+        </label>
         <textarea
           id="content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={6}
-          className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-indigo-500"
+          className="w-full p-3 rounded-lg  bg-gray-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
           placeholder="Write your thoughts for today..."
         ></textarea>
       </div>
-      
+
       <button
         type="submit"
         disabled={isSubmitting || !content.trim()}
-        className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3 rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
+        className="w-full bg-gradient-to-r from-indigo-400 to-purple-400 text-gray-900 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
       >
         {isSubmitting ? 'Saving...' : 'Save Journal Entry'}
       </button>
