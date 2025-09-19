@@ -45,6 +45,7 @@ export default function Friday() {
         })}
         isActive={true}
       >
+        {/* Movie Enjoyment Section */}
         <div className="mt-4 p-4 border border-indigo-200 rounded-lg bg-white/70 backdrop-blur-md">
           <h2 className="text-xl font-bold mb-2 bg-gradient-to-r from-indigo-700 to-indigo-500 bg-clip-text text-transparent">Movie Enjoyment Time</h2>
           {fridayTasks
@@ -61,6 +62,8 @@ export default function Friday() {
               </div>
             ))}
         </div>
+
+        {/* Classic Movie Plan */}
         <div className="mt-4 p-4 border border-purple-200 rounded-lg bg-white/70 backdrop-blur-md">
           <h3 className="text-lg font-semibold mb-3 bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent flex items-center">
             <span className="mr-2">🎥</span>
@@ -68,9 +71,28 @@ export default function Friday() {
           </h3>
           <ul className="space-y-2 text-sm text-slate-700">
             {movieSchedule.map((item, index) => (
-              <li key={index} className="flex justify-between p-2 bg-purple-50 rounded-md border-l-4 border-purple-300">
-                <span className="font-medium text-purple-800">{item.date}</span>
-                <span className="text-slate-800 italic">– {item.movie}</span>
+              <li
+                key={index}
+                className={`flex justify-between p-2 rounded-md border-l-4 ${
+                  item.movie === 'Ittefaq (2001)'
+                    ? 'bg-gray-100 border-gray-400'
+                    : 'bg-purple-50 border-purple-300'
+                }`}
+              >
+                <span
+                  className={`font-medium ${
+                    item.movie === 'Ittefaq (2001)' ? 'text-gray-600 line-through' : 'text-purple-800'
+                  }`}
+                >
+                  {item.date}
+                </span>
+                <span
+                  className={`italic ${
+                    item.movie === 'Ittefaq (2001)' ? 'text-gray-500 line-through' : 'text-slate-800'
+                  }`}
+                >
+                  – {item.movie}
+                </span>
               </li>
             ))}
           </ul>
