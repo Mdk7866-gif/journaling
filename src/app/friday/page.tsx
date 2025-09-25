@@ -17,21 +17,22 @@ export default function Friday() {
     { time: '9:55 – 10:00', description: 'Cooldown (short walk, light music, or stretch before sleep)', category: 'Rest' },
   ];
 
+  // Updated movie schedule: skipped 26 Sept and shifted all movies one week forward
   const movieSchedule = [
     { date: '19 Sept 2025 (Fri)', movie: 'Ittefaq (2001)' },
-    { date: '26 Sept 2025 (Fri)', movie: 'Yes Boss (1997)' },
-    { date: '3 Oct 2025 (Fri)', movie: 'Hum Hain Rahi Pyar Ke (1993)' },
-    { date: '10 Oct 2025 (Fri)', movie: 'Dil (1990)' },
-    { date: '17 Oct 2025 (Fri)', movie: 'Jaane Bhi Do Yaaro (1983)' },
-    { date: '24 Oct 2025 (Fri)', movie: 'Angoor (1982)' },
-    { date: '31 Oct 2025 (Fri)', movie: 'Chashme Buddoor (1981)' },
-    { date: '7 Nov 2025 (Fri)', movie: 'Khubsurat (1980)' },
-    { date: '14 Nov 2025 (Fri)', movie: 'Gol Maal (1979)' },
-    { date: '21 Nov 2025 (Fri)', movie: 'Baton Baton Mein (1979)' },
-    { date: '28 Nov 2025 (Fri)', movie: 'Khatta Meetha (1978)' },
-    { date: '5 Dec 2025 (Fri)', movie: 'Pati, Patni Aur Woh (1978)' },
-    { date: '12 Dec 2025 (Fri)', movie: 'Bobby (1973)' },
-    { date: '19 Dec 2025 (Fri)', movie: 'Ittefaq (1969)' },
+    { date: '3 Oct 2025 (Fri)', movie: 'Yes Boss (1997)' },
+    { date: '10 Oct 2025 (Fri)', movie: 'Hum Hain Rahi Pyar Ke (1993)' },
+    { date: '17 Oct 2025 (Fri)', movie: 'Dil (1990)' },
+    { date: '24 Oct 2025 (Fri)', movie: 'Jaane Bhi Do Yaaro (1983)' },
+    { date: '31 Oct 2025 (Fri)', movie: 'Angoor (1982)' },
+    { date: '7 Nov 2025 (Fri)', movie: 'Chashme Buddoor (1981)' },
+    { date: '14 Nov 2025 (Fri)', movie: 'Khubsurat (1980)' },
+    { date: '21 Nov 2025 (Fri)', movie: 'Gol Maal (1979)' },
+    { date: '28 Nov 2025 (Fri)', movie: 'Baton Baton Mein (1979)' },
+    { date: '5 Dec 2025 (Fri)', movie: 'Khatta Meetha (1978)' },
+    { date: '12 Dec 2025 (Fri)', movie: 'Pati, Patni Aur Woh (1978)' },
+    { date: '19 Dec 2025 (Fri)', movie: 'Bobby (1973)' },
+    { date: '26 Dec 2025 (Fri)', movie: 'Ittefaq (1969)' },
   ];
 
   return (
