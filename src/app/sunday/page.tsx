@@ -12,6 +12,7 @@ export default function Sunday() {
     { time: '6:30 – 7:30', description: 'Hakirat project work', category: 'Coding' },
     { time: '7:30 – 8:30', description: 'Dinner', category: 'Meal' },
     { time: '8:30 – 9:30', description: 'Hakirat project work', category: 'Coding' },
+    { time: '9:30 – 10:00', description: 'Journaling + relax', category: 'Leisure' },
     { time: '10:00 – 6:45', description: 'Sleep', category: 'Rest' },
   ];
 

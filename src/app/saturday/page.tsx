@@ -13,8 +13,8 @@ export default function Saturday() {
     { time: '6:30 – 7:30', description: 'Next.js from chatgpt', category: 'Coding' },
     { time: '7:30 – 8:00', description: 'Dinner', category: 'Meal' },
     { time: '8:00 – 10:00', description: '2 Codeforces problems/leetcode biweekly contest', category: 'Coding' },
-    { time: '10:00 – 10:15', description: 'Journaling', category: 'Relax' },
-    { time: '10:15 – 6:45', description: 'Sleep', category: 'Leisure' },
+    { time: '10:00 – 10:15', description: 'Journaling', category: 'Leisure' },
+    { time: '10:15 – 6:45', description: 'Sleep', category: 'Rest' },
   ];
 
   return (
