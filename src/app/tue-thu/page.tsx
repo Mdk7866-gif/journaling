@@ -10,7 +10,7 @@ export default function TueThu() {
     { time: '5:00 – 6:30', description: 'Exercise + shower + hydration', category: 'Exercise' },
     { time: '6:30 – 7:30', description: '2 Codeforces problems', category: 'Coding' },
     { time: '7:30 – 8:30', description: 'Dinner + relax', category: 'Meal' },
-     { time: '8:30 – 9:30', description: 'Next.js from chatgpt', category: 'Coding' },
+     { time: '8:30 – 9:30', description: 'Next.js from Grok', category: 'Coding' },
     { time: '9:30 – 10:00', description: 'Journaling + relax', category: 'Leisure' },
     { time: '10:00 – 6:45', description: 'Sleep', category: 'Rest' },
   ];
